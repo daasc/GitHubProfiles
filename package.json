@@ -12,7 +12,10 @@
     "lint": "npm run lint:js && npm run lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --cache",
@@ -31,6 +34,7 @@
     "@babel/eslint-parser": "^7.16.3",
     "@nuxtjs/eslint-config": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
+    "@types/jest": "^27.4.1",
     "@vue/test-utils": "^1.3.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^27.4.4",
@@ -38,10 +42,15 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-vue": "^8.2.0",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.4",
     "jest": "^27.4.4",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.1",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^10.2.1",
     "vue-jest": "^3.0.4"
   }
 }

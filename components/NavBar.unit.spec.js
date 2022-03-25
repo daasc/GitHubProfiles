@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import NavBar from '@/components/NavBar.vue'
-describe('', () => {
+describe('NavBar', () => {
   const mountNavBar = ({ values = {} }) => {
     const wrapper = mount(NavBar, {
       data() {

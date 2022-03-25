@@ -32,7 +32,7 @@ describe('GitHub', () => {
 
   it('should make a get call getting the user data', async () => {
     const { store } = createStore()
-    await store.dispatch('getUsers', { search: 'daasc' })
+    await store.dispatch('getUsers', 'daasc')
     expect(store.state.users).toEqual(users)
   })
 

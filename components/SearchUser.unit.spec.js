@@ -27,4 +27,12 @@ describe('SearchUser', () => {
     expect(wrapper.emitted().doSearch.length).toBe(1)
     expect(wrapper.emitted().doSearch[0]).toEqual([{ term: 'daasc' }])
   })
+
+  it('should check if value is empty', async () => {
+    const { wrapper } = mountSearchUser({ values: { search: '' } })
+    const search = wrapper.find('[date-testid="search"]')
+    await search.trigger('click')
+
+    expect(wrapper.emitted().doSearch).toBeUndefined()
+  })
 })

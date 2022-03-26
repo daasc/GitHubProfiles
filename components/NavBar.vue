@@ -47,9 +47,9 @@ export default {
   .navbar {
     display: flex;
     height: 80px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color, #0e1116);
     width: 100%;
-    color: var(--font-color);
+    color: var(--font-color, #f0f6fc);
     font-size: 22px;
     align-items: center;
     .title {

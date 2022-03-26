@@ -22,7 +22,9 @@ export default {
   },
   methods: {
     searchUser() {
-      this.$emit('doSearch', { term: this.search })
+      if (this.search) {
+        this.$emit('doSearch', { term: this.search })
+      }
     },
   },
 }

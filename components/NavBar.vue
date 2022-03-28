@@ -62,6 +62,7 @@ export default {
       justify-content: center;
       img {
         width: 50px;
+        cursor: pointer;
       }
     }
   }

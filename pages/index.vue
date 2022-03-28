@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div class="main">
     <nav-bar></nav-bar>
     <search-user @doSearch="doSearch"></search-user>
-
-    <card-profile
-      v-if="Object.keys(users).length"
-      :users="users"
-    ></card-profile>
+    <div class="card">
+      <card-profile
+        v-if="Object.keys(users).length"
+        :users="users"
+      ></card-profile>
+    </div>
   </div>
 </template>
 
@@ -29,4 +30,14 @@ export default {
   },
 }
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+.main {
+  background: var(--container-color);
+  height: 100vh;
+  .card {
+    display: flex;
+    justify-content: center;
+    min-height: 500px;
+  }
+}
+</style>

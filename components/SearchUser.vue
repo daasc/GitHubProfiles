@@ -6,8 +6,13 @@
       type="search"
       name=""
       class="search__input"
+      @keyup.enter="searchUser()"
     />
-    <button class="search__button" date-testid="search" @click="searchUser()">
+    <button
+      class="search__button primary ghost"
+      date-testid="search"
+      @click="searchUser()"
+    >
       search
     </button>
   </div>
@@ -35,13 +40,15 @@ export default {
   margin: 50px;
   .search__input {
     padding: 10px;
-    border: 1px solid rgb(170, 170, 170);
+    border: 1px solid #02899c;
     outline: none;
     border-right: none;
   }
   .search__button {
     border: 1px solid;
     border-left: none;
+    border-radius: 0px 3px 3px 0px;
+    cursor: pointer;
   }
 }
 </style>

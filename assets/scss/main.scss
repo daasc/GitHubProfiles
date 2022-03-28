@@ -2,14 +2,32 @@ body.dark {
   --primary-color: #161b22;
   --font-color: #f0f6fc;
   --container-color: #0d1117;
+  --card-color: #020408;
 }
 
 body.light {
   --primary-color: #0e1116;
   --font-color: #f0f6fc;
   --container-color: #ffff;
+  --card-color: #ffff;
 }
 
 body {
   margin: 0px;
+}
+
+.primary {
+  text-decoration: none;
+  background-color: #03bfcb;
+  border: 1px solid #03bfcb;
+  border-radius: 3px;
+  color: #231e39;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+.primary.ghost {
+  background-color: transparent;
+  color: #02899c;
 }

@@ -1,16 +1,23 @@
 <template>
   <div class="card-container">
-    <span class="pro">PRO</span>
     <img class="round" :src="users.avatar_url" alt="user" />
     <h3>{{ users.name }}</h3>
-    <h6>New York</h6>
+    <h6>{{ users.location }}</h6>
     <p>
-      User interface designer and <br />
-      front-end developer
+      {{ users.bio }}
     </p>
+    <div>
+      <div>
+        <span>Repositories count:</span> <span>{{ users.public_repos }}</span>
+      </div>
+      <div>
+        <span>Followers:</span> <span>{{ users.followers }}</span>
+      </div>
+    </div>
     <div class="buttons">
-      <button class="primary">Message</button>
-      <button class="primary ghost">Following</button>
+      <a :href="users.html_url" class="primary ghost" target="_blank"
+        >Following</a
+      >
     </div>
   </div>
 </template>
@@ -40,14 +47,13 @@ export default {
     font-size: 14px;
     line-height: 21px;
   }
-  background-color: #231e39;
+  background-color: var(--card-color);
   border-radius: 5px;
   box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
   color: #b3b8cd;
   padding-top: 30px;
   position: relative;
   width: 350px;
-  max-width: 100%;
   text-align: center;
 
   .pro {
@@ -69,20 +75,7 @@ export default {
     width: 200px;
   }
   .buttons {
-    button.primary {
-      background-color: #03bfcb;
-      border: 1px solid #03bfcb;
-      border-radius: 3px;
-      color: #231e39;
-      font-family: Montserrat, sans-serif;
-      font-weight: 500;
-      padding: 10px 25px;
-    }
-
-    button.primary.ghost {
-      background-color: transparent;
-      color: #02899c;
-    }
+    margin-top: 30px;
   }
 }
 </style>

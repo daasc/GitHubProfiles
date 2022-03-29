@@ -24,8 +24,9 @@ export default {
     },
   },
   methods: {
-    doSearch({ term }) {
-      this.$store.dispatch('github/getUsers', term)
+    async doSearch({ term }) {
+      console.log(term)
+      await this.$store.dispatch('github/getUsers', term)
     },
   },
 }

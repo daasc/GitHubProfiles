@@ -1,14 +1,15 @@
 /* eslint-disable import/no-named-as-default-member */
 import { createLocalVue, mount } from '@vue/test-utils'
 import Vuex from 'vuex'
-import Vue from 'vue'
+import axios from 'axios'
 import { users } from '../db/test.json'
-import CardProfile from './CardProfile.vue'
+import Index from '@/pages/index.vue'
 
 import { state, mutations, getters, actions } from '@/store/github.js'
+jest.mock('axios')
 
-describe('CardProfile', () => {
-  const mountCardProfile = async ({ props = false }) => {
+describe('Index', () => {
+  const mountIndex = () => {
     const localVue = createLocalVue()
     localVue.use(Vuex)
     const store = new Vuex.Store({
@@ -22,28 +23,27 @@ describe('CardProfile', () => {
         },
       },
     })
-
-    await store.commit('github/SET_USERS', users)
-
-    const wrapper = mount(CardProfile, {
-      propsData: {
-        users: store.state.github.users,
-      },
+    axios.get = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.resolve({ data: users }))
+    const wrapper = mount(Index, {
       mocks: {
         $store: store,
       },
     })
-    Vue.nextTick()
-    return { wrapper }
+    return { wrapper, store }
   }
-  it('should mount the component', async () => {
-    const { wrapper } = await mountCardProfile({})
+  it('should mount the component', () => {
+    const { wrapper } = mountIndex()
     expect(wrapper.vm).toBeDefined()
   })
 
   it('should mount the component', async () => {
-    const { wrapper } = await mountCardProfile({ propsData: true })
-    const card = wrapper.find('[date-testid="name-user"]')
-    expect(card.text()).toContain('Paulo Sobrinho Ferreira')
+    const { wrapper, store } = mountIndex()
+    const input = wrapper.find('[date-testid="input-search"]')
+    input.setValue('ggggeea')
+    const search = wrapper.find('[date-testid="search"]')
+    await search.trigger('click')
+    expect(store.state.github.users).toEqual(users)
   })
 })

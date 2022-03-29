@@ -1,7 +1,7 @@
 <template>
   <div class="card-container">
     <img class="round" :src="users.avatar_url" alt="user" />
-    <h3>{{ users.name }}</h3>
+    <h3 date-testid="name-user">{{ users.name }}</h3>
     <h6>{{ users.location }}</h6>
     <p>
       {{ users.bio }}

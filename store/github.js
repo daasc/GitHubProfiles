@@ -18,6 +18,8 @@ export const getters = {}
 export const actions = {
   async getUsers({ commit }, search) {
     const response = await axios.get(`https://api.github.com/users/${search}`)
+    console.log(response)
+
     commit('SET_USERS', response.data)
   },
   async getRepository({ commit, state }) {
